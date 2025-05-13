@@ -1,10 +1,10 @@
 # Mankind Matrix Product Service
 
-A microservice for managing products, using MySQL as the database.
+A microservice for managing products with MySQL database integration.
 
 ## Overview
 
-This service provides REST API endpoints to manage product data with full CRUD operations.
+This service provides REST API endpoints for complete product data management, supporting full CRUD (Create, Read, Update, Delete) operations.
 
 ## Setup Guide
 
@@ -12,7 +12,7 @@ This service provides REST API endpoints to manage product data with full CRUD o
 
 - **Java**: JDK 17
 - **MySQL**: 8.0 or newer
-- **Git**: For cloning the repository
+- **Git**: For version control and repository cloning
 
 ### Installation Steps
 
@@ -21,17 +21,17 @@ This service provides REST API endpoints to manage product data with full CRUD o
 <details>
 <summary><b>macOS</b></summary>
 
-1. Install Homebrew (if not installed)
+1. Install Homebrew (if not already installed)
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-2. Install Java with Homebrew
+2. Install Java using Homebrew
 ```bash
 brew install openjdk@17
 ```
 
-3. Link Java
+3. Create Java symlink
 ```bash
 sudo ln -sfn $(brew --prefix)/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
 ```
@@ -42,18 +42,18 @@ sudo ln -sfn $(brew --prefix)/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/J
 
 1. Download OpenJDK 17 from [Adoptium](https://adoptium.net/)
 2. Run the installer
-3. Add to PATH: Set JAVA_HOME in Environment Variables
+3. Configure environment: Set JAVA_HOME in System Environment Variables
 </details>
 
 <details>
 <summary><b>Linux (Ubuntu/Debian)</b></summary>
 
-1. Update Linux
+1. Update system packages
 ```bash
 sudo apt update
 ```
 
-2. Install Java
+2. Install Java JDK
 ```bash
 sudo apt install openjdk-17-jdk
 ```
@@ -64,7 +64,7 @@ sudo apt install openjdk-17-jdk
 <details>
 <summary><b>macOS</b></summary>
 
-1. Install MySQL
+1. Install MySQL using Homebrew
 ```bash
 brew install mysql
 ```
@@ -79,27 +79,29 @@ brew services start mysql
 <summary><b>Windows</b></summary>
 
 1. Download MySQL Installer from [MySQL Website](https://dev.mysql.com/downloads/installer/)
-2. Select "Server only" or "Custom" installation
-3. Complete the setup wizard (note your root password)
+2. Choose "Server only" or "Custom" installation type
+3. Follow the setup wizard (remember to note your root password)
 </details>
 
 <details>
 <summary><b>Linux (Ubuntu/Debian)</b></summary>
 
+Install MySQL Server:
 ```bash
 sudo apt install mysql-server
 ```
 </details>
 
-#### 3. Verify Instalation
+#### 3. Verify Installation
 
 <details>
+<summary>Check installed versions</summary>
 
 ```bash
-# Check Java version (should show version 17.x)
+# Verify Java version (should display version 17.x)
 java --version
 
-# Check MySQL version
+# Verify MySQL version
 mysql --version
 ```
 </details>
@@ -111,20 +113,21 @@ mysql --version
 ```bash
 git clone https://github.com/rebeccayilma/Mankind_Matrix_Product_Service.git
 ```
-```bash
-cd Mankind_Matrix_Product_Service
-```
-### 2. Create .env file
 
-1. Duplicate the file '.env.example'
-2. Rename for .env
+### 2. Configure Environment
 
-### 3. Connect to Database
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
 
-This step has to be done when a database is setup. If it not yet, please, follow the guidance here.
+### 3. Database Configuration
 
-- Replace the enviroment variable with the database connection
-```bash
+If you haven't set up the database yet, please follow the [Database Setup Guide](scripts/README.MD).
+
+Update the `.env` file with your database connection details:
+
+```properties
 # Database Configuration
 DB_HOST=mankind-matrix-db.cd0qkick6gy2.us-west-1.rds.amazonaws.com
 DB_PORT=3306
@@ -147,22 +150,21 @@ DB_HIKARI_MIN_IDLE=5
 DB_HIKARI_CONNECTION_TIMEOUT=60000
 DB_HIKARI_IDLE_TIMEOUT=300000
 DB_HIKARI_MAX_LIFETIME=1200000
-
 ```
 
-### 4. Run the Application
+### 4. Start the Application
 
-- Run the command to start application
+Run the following command to start the service:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-### 5. Testing the API
+### 5. Access the API
 
-The service will be available at `http://localhost:8080`
-
-Check API application at `http://localhost:8080`
+The service will be available at:
+- API Endpoint: `http://localhost:8080`
+- API Documentation: `http://localhost:8080`
 
 ## Additional Resources
 
