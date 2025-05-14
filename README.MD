@@ -164,7 +164,7 @@ Run the following command to start the service:
 
 The service will be available at:
 - API Endpoint: `http://localhost:8080`
-- API Documentation: `http://localhost:8080`
+- API Documentation: `http://localhost:8080/swagger-ui/index.html`
 
 ## Additional Resources
 
